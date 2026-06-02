@@ -1,56 +1,46 @@
 {
   "tabs": [
     {
-      "id": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
-      "title": "Push App to GitHub Repo",
+      "id": "1f8b66c0-1dd2-4a62-9440-e9f92aac6e89",
+      "title": "Deploy GitHub Repository Publicly",
       "type": "chat",
-      "createdAt": 1780360929393,
-      "updatedAt": 1780360929393,
+      "createdAt": 1780362257947,
+      "updatedAt": 1780362257947,
       "isActive": true,
-      "chatId": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
+      "chatId": "1f8b66c0-1dd2-4a62-9440-e9f92aac6e89",
+      "groupId": "group-1780362504947-r2sq7vee3",
       "paneId": "root"
     },
     {
-      "id": "b58849a4-7feb-4b92-b99c-ccfc3070efa0",
-      "title": "Running App Locally",
-      "type": "chat",
-      "createdAt": 1780361058636,
-      "updatedAt": 1780361058636,
-      "isActive": true,
-      "chatId": "b58849a4-7feb-4b92-b99c-ccfc3070efa0",
-      "groupId": "group-1780361148473-y72l13fmq",
-      "paneId": "root"
-    },
-    {
-      "id": "browser-1780361148465-6pni7vr14",
-      "title": "Vite + React + TS",
+      "id": "browser-1780362504940-rcikllqd0",
+      "title": "Authorize Railway App",
       "type": "browser",
       "createdAt": 1780361148465,
       "updatedAt": 1780362479375,
       "isActive": true,
-      "url": "http://localhost:5173/",
+      "url": "https://github.com/login/oauth/authorize?client_id=Iv1.f1f9f244b29a3433&redirect_uri=https%3A%2F%2Fbackboard.railway.com%2Flogin%2Fgithub%2Fcallback&state=bmV4dD1odHRwcyUzQSUyRiUyRnJhaWx3YXkuY29tJTJGbmV3JTJGZ2l0aHViJnBvc3Rob2dTZXNzaW9uSWQ9MDE5ZTg1ZTAtODYwNS03M2U0LTkxNmUtZDU3MGUyMzM0ZTAwJnJlZmVyZXI9aHR0cHMlM0ElMkYlMkZyYWlsd2F5LmNvbSUyRiZyZWRpcmVjdFVybD1odHRwcyUzQSUyRiUyRmJhY2tib2FyZC5yYWlsd2F5LmNvbSUyRmxvZ2luJTJGZ2l0aHViJTJGY2FsbGJhY2smbm9uY2U9ZWExYWFlYTQtMjMyNy00NTY4LWEwZjMtZWVhZjZiYzE5MjA5&code_challenge=VTC5GO2BlpdusBP0ONkWi75vuFxJWkgtuNZKyJ2Pi04&code_challenge_method=S256",
       "paneId": "root",
-      "groupId": "group-1780361148473-y72l13fmq",
-      "sourceChatId": "b58849a4-7feb-4b92-b99c-ccfc3070efa0",
-      "favicon": "http://localhost:5173/vite.svg"
+      "groupId": "group-1780362504947-r2sq7vee3",
+      "sourceChatId": "1f8b66c0-1dd2-4a62-9440-e9f92aac6e89",
+      "favicon": "https://github.githubassets.com/favicons/favicon-dark.png"
     }
   ],
-  "activeTabId": "b58849a4-7feb-4b92-b99c-ccfc3070efa0",
+  "activeTabId": "1f8b66c0-1dd2-4a62-9440-e9f92aac6e89",
   "groups": [
     {
-      "id": "group-1780361148473-y72l13fmq",
-      "name": "Development and Gaming",
+      "id": "group-1780362504947-r2sq7vee3",
+      "name": "Chess Roulette",
       "color": "#FF6B6B",
       "isCollapsed": false,
       "position": 0,
-      "createdAt": 1780361148473
+      "createdAt": 1780362504947
     }
   ],
   "dockedBrowserTabs": {
-    "b58849a4-7feb-4b92-b99c-ccfc3070efa0": "browser-1780361148465-6pni7vr14"
+    "1f8b66c0-1dd2-4a62-9440-e9f92aac6e89": "browser-1780362504940-rcikllqd0"
   },
   "activeTabIdByPane": {
-    "root": "b58849a4-7feb-4b92-b99c-ccfc3070efa0"
+    "root": "1f8b66c0-1dd2-4a62-9440-e9f92aac6e89"
   },
   "paneTree": {
     "type": "leaf",
@@ -69,8 +59,7 @@
         "isActive": false,
         "filePath": "C:\\Users\\JovetBroa\\Downloads\\chess-roulette-challenge.pdf",
         "paneId": "root"
-      },
-      "wasEphemeral": false
+      }
     },
     {
       "kind": "tab",
@@ -82,6 +71,20 @@
         "updatedAt": 1780360027585,
         "isActive": false,
         "chatId": "bbe72bac-19d4-43f3-a147-b81a2e660dba",
+        "paneId": "root"
+      },
+      "wasEphemeral": false
+    },
+    {
+      "kind": "tab",
+      "tab": {
+        "id": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
+        "title": "Free Public Deployment Guide",
+        "type": "chat",
+        "createdAt": 1780360929393,
+        "updatedAt": 1780360929393,
+        "isActive": false,
+        "chatId": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
         "paneId": "root"
       },
       "wasEphemeral": false
