@@ -131,8 +131,10 @@ class WebRTCService {
         videoTrack.stop();
         
         if (this.peerConnection) {
-          this.peerConnection.removeTrack(videoTrack);
-          this.peerConnection.addTrack(newVideoTrack, this.localStream);
+          const sender = this.peerConnection.getSenders().find(s => s.track === videoTrack);
+          if (sender) {
+            sender.replaceTrack(newVideoTrack);
+          }
         }
 
         this.localStream.removeTrack(videoTrack);

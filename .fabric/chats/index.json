@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "updatedAt": 1780361078250,
+  "chats": [
+    {
+      "id": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
+      "title": "Push App to GitHub Repo",
+      "createdAt": 1780360935955,
+      "updatedAt": 1780361032131,
+      "isActive": true,
+      "sessionType": "normal"
+    },
+    {
+      "id": "b58849a4-7feb-4b92-b99c-ccfc3070efa0",
+      "title": "Running App Locally",
+      "createdAt": 1780361068262,
+      "updatedAt": 1780361078242,
+      "isActive": true,
+      "sessionType": "normal"
+    }
+  ]
+}

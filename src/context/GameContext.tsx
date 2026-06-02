@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from 'react';
 import { Chess, Move as ChessMove } from 'chess.js';
 import { socketService } from '../services/socket';
 import { webRTCService } from '../services/webrtc';
@@ -168,8 +168,8 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
     const setupListeners = () => {
       unsubscribers.push(
-        socketService.on('queueJoined', (data) => {
-          console.log('Queue joined:', data);
+        socketService.on('queueJoined', (_data: any) => {
+          console.log('Queue joined');
         })
       );
 
@@ -228,7 +228,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
       );
 
       unsubscribers.push(
-        socketService.on('gameStart', (data) => {
+        socketService.on('gameStart', (data: { color: 'white' | 'black' }) => {
           console.log('Game started:', data);
           setGameState((prev) => ({
             ...prev,

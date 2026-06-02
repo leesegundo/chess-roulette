@@ -1,29 +1,26 @@
-import React from 'react';
 import { Chessboard } from 'react-chessboard';
-import { Chess, Move as ChessMove } from 'chess.js';
+import { Chess, Square } from 'chess.js';
 import { useGame } from '../context/GameContext';
 
 export function ChessBoardPanel() {
   const { gameState, chess, makeMove } = useGame();
 
-  function onDrop(sourceSquare: string, targetSquare: string, piece: string): boolean {
+  function onDrop(sourceSquare: Square, targetSquare: Square): boolean {
     if (!gameState.isPlaying || !gameState.isMyTurn || gameState.gameOver) {
       return false;
     }
 
     try {
-      const move: ChessMove = {
+      // Check if the move is valid
+      const tempChess = new Chess(chess.fen());
+      const result = tempChess.move({
         from: sourceSquare,
         to: targetSquare,
         promotion: 'q', // Always promote to queen for simplicity
-      };
-
-      // Check if the move is valid
-      const tempChess = new Chess(chess.fen());
-      const result = tempChess.move(move);
+      });
       
       if (result) {
-        makeMove(move);
+        makeMove(result);
         return true;
       }
       return false;
@@ -63,10 +60,7 @@ export function ChessBoardPanel() {
     }
   };
 
-  const customPieces = () => {
-    const pieces: { [piece: string]: React.FC<{ squareWidth: number }> } = {};
-    return pieces;
-  };
+
 
   return (
     <div className="chess-panel">

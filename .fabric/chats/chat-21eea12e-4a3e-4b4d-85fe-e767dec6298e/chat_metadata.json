@@ -1,10 +1,10 @@
 {
   "id": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
-  "title": "Chat",
+  "title": "Push App to GitHub Repo",
   "createdAt": 1780360935955,
-  "updatedAt": 1780360936108,
+  "updatedAt": 1780361653176,
   "isActive": true,
-  "lastMessage": "push this app to this github repo https://github.c...",
-  "timestamp": 1780360935954,
+  "lastMessage": "push the changes in this branch to the repo",
+  "timestamp": 1780361653050,
   "sessionType": "normal"
 }

@@ -1,5 +1,4 @@
 import { io, Socket } from 'socket.io-client';
-import { MatchData, ChatMessage } from '../types';
 
 const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:3001';
 

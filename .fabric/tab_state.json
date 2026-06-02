@@ -1,31 +1,56 @@
 {
   "tabs": [
     {
-      "id": "bbe72bac-19d4-43f3-a147-b81a2e660dba",
-      "title": "Chat",
-      "type": "chat",
-      "createdAt": 1780360027585,
-      "updatedAt": 1780360027585,
-      "isActive": true,
-      "chatId": "bbe72bac-19d4-43f3-a147-b81a2e660dba",
-      "paneId": "root"
-    },
-    {
       "id": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
-      "title": "Chat",
+      "title": "Push App to GitHub Repo",
       "type": "chat",
       "createdAt": 1780360929393,
       "updatedAt": 1780360929393,
       "isActive": true,
       "chatId": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
       "paneId": "root"
+    },
+    {
+      "id": "b58849a4-7feb-4b92-b99c-ccfc3070efa0",
+      "title": "Running App Locally",
+      "type": "chat",
+      "createdAt": 1780361058636,
+      "updatedAt": 1780361058636,
+      "isActive": true,
+      "chatId": "b58849a4-7feb-4b92-b99c-ccfc3070efa0",
+      "groupId": "group-1780361148473-y72l13fmq",
+      "paneId": "root"
+    },
+    {
+      "id": "browser-1780361148465-6pni7vr14",
+      "title": "Vite + React + TS",
+      "type": "browser",
+      "createdAt": 1780361148465,
+      "updatedAt": 1780361582173,
+      "isActive": true,
+      "url": "http://localhost:5173/",
+      "paneId": "root",
+      "groupId": "group-1780361148473-y72l13fmq",
+      "sourceChatId": "b58849a4-7feb-4b92-b99c-ccfc3070efa0",
+      "favicon": "http://localhost:5173/vite.svg"
     }
   ],
-  "activeTabId": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
-  "groups": [],
-  "dockedBrowserTabs": {},
+  "activeTabId": "b58849a4-7feb-4b92-b99c-ccfc3070efa0",
+  "groups": [
+    {
+      "id": "group-1780361148473-y72l13fmq",
+      "name": "Development and Gaming",
+      "color": "#FF6B6B",
+      "isCollapsed": false,
+      "position": 0,
+      "createdAt": 1780361148473
+    }
+  ],
+  "dockedBrowserTabs": {
+    "b58849a4-7feb-4b92-b99c-ccfc3070efa0": "browser-1780361148465-6pni7vr14"
+  },
   "activeTabIdByPane": {
-    "root": "21eea12e-4a3e-4b4d-85fe-e767dec6298e"
+    "root": "b58849a4-7feb-4b92-b99c-ccfc3070efa0"
   },
   "paneTree": {
     "type": "leaf",
@@ -43,6 +68,20 @@
         "updatedAt": 1780360053793,
         "isActive": false,
         "filePath": "C:\\Users\\JovetBroa\\Downloads\\chess-roulette-challenge.pdf",
+        "paneId": "root"
+      },
+      "wasEphemeral": false
+    },
+    {
+      "kind": "tab",
+      "tab": {
+        "id": "bbe72bac-19d4-43f3-a147-b81a2e660dba",
+        "title": "Chat",
+        "type": "chat",
+        "createdAt": 1780360027585,
+        "updatedAt": 1780360027585,
+        "isActive": false,
+        "chatId": "bbe72bac-19d4-43f3-a147-b81a2e660dba",
         "paneId": "root"
       },
       "wasEphemeral": false

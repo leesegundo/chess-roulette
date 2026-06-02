@@ -1,0 +1,21 @@
+{
+  "version": "v2",
+  "selections": {
+    "fdc9e415-11c6-4e76-a1e6-c48eaf4f9684": "82ff62c8-c0a4-421a-91c9-42f48d6e6dc5",
+    "c66f329b-2eee-491d-8b5b-f797eacfe5f4": "9a498978-2cc9-441a-82f9-5c5a42c4c6f6",
+    "e8f186c5-321a-47bf-8e83-f5a16ef290e6": "dd7faa53-4a9d-44a5-90a9-c91f17f5f257"
+  },
+  "lastUpdated": "2026-06-02T00:45:38.402Z",
+  "conversationSnapshot": {
+    "activePath": [
+      "fdc9e415-11c6-4e76-a1e6-c48eaf4f9684",
+      "82ff62c8-c0a4-421a-91c9-42f48d6e6dc5",
+      "c66f329b-2eee-491d-8b5b-f797eacfe5f4",
+      "9a498978-2cc9-441a-82f9-5c5a42c4c6f6",
+      "e8f186c5-321a-47bf-8e83-f5a16ef290e6"
+    ],
+    "rootMessageId": "fdc9e415-11c6-4e76-a1e6-c48eaf4f9684",
+    "messageCount": 5,
+    "timestamp": "2026-06-02T00:45:38.402Z"
+  }
+}
