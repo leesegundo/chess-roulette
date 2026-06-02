@@ -134,12 +134,16 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const resign = useCallback(() => {
     if (!gameState.game) return;
     socketService.resign(gameState.game.id);
+    // Close camera when resigning
+    webRTCService.close();
     setGameState((prev) => ({
       ...prev,
       gameOver: true,
       winner: prev.playerColor === 'white' ? 'black' : 'white',
       gameOverReason: 'resignation',
     }));
+    setLocalVideoStream(null);
+    setRemoteVideoStream(null);
   }, [gameState.game, gameState.playerColor]);
 
   const sendChatMessage = useCallback((message: string) => {
@@ -251,49 +255,42 @@ export function GameProvider({ children }: { children: ReactNode }) {
           console.log('Opponent move received:', data);
           
           try {
-            // Parse the move - handle both SAN (e.g., "Nf3") and coordinate (e.g., "e2e4") formats
-            let chessMove;
-            if (data.move.length === 4 || data.move.length === 5) {
-              // Coordinate format (e.g., "e2e4" or "e7e8q")
-              chessMove = chess.move({
-                from: data.move.substring(0, 2),
-                to: data.move.substring(2, 4),
-                promotion: data.move.length === 5 ? data.move[4] : 'q',
-              });
-            } else {
-              // SAN format (e.g., "Nf3", "O-O")
-              chessMove = chess.move(data.move);
-            }
+            // Load the FEN directly from the server - this is the source of truth
+            // This avoids any issues with move parsing or state desynchronization
+            chess.load(data.fen);
             
-            if (chessMove) {
+            // Extract the last move from the FEN to highlight it
+            // The move is in SAN format, but we can get the from/to from the chess instance
+            const history = chess.history({ verbose: true });
+            const lastMove = history[history.length - 1];
+            
+            setGameState((prev) => ({
+              ...prev,
+              fen: data.fen,
+              lastMove: lastMove ? { from: lastMove.from, to: lastMove.to } : null,
+              isMyTurn: true,
+            }));
+
+            // Check for game over
+            if (chess.isGameOver()) {
+              let winner: 'white' | 'black' | 'draw' | null = null;
+              let reason = '';
+
+              if (chess.isCheckmate()) {
+                winner = chess.turn() === 'w' ? 'black' : 'white';
+                reason = 'checkmate';
+              } else if (chess.isDraw()) {
+                reason = 'draw';
+              } else if (chess.isStalemate()) {
+                reason = 'stalemate';
+              }
+
               setGameState((prev) => ({
                 ...prev,
-                fen: data.fen,
-                lastMove: { from: chessMove.from, to: chessMove.to },
-                isMyTurn: true,
+                gameOver: true,
+                winner,
+                gameOverReason: reason,
               }));
-
-              // Check for game over
-              if (chess.isGameOver()) {
-                let winner: 'white' | 'black' | 'draw' | null = null;
-                let reason = '';
-
-                if (chess.isCheckmate()) {
-                  winner = chess.turn() === 'w' ? 'black' : 'white';
-                  reason = 'checkmate';
-                } else if (chess.isDraw()) {
-                  reason = 'draw';
-                } else if (chess.isStalemate()) {
-                  reason = 'stalemate';
-                }
-
-                setGameState((prev) => ({
-                  ...prev,
-                  gameOver: true,
-                  winner,
-                  gameOverReason: reason,
-                }));
-              }
             }
           } catch (err) {
             console.error('Error processing opponent move:', err, 'Move data:', data);
@@ -317,6 +314,12 @@ export function GameProvider({ children }: { children: ReactNode }) {
       unsubscribers.push(
         socketService.on('gameOver', (data: { reason: string; winner: 'white' | 'black' }) => {
           console.log('Game over:', data);
+          // Close camera when game ends due to resignation or disconnect
+          if (data.reason === 'resignation' || data.reason === 'opponent_disconnected' || data.reason === 'disconnected') {
+            webRTCService.close();
+            setLocalVideoStream(null);
+            setRemoteVideoStream(null);
+          }
           setGameState((prev) => ({
             ...prev,
             isPlaying: false,
