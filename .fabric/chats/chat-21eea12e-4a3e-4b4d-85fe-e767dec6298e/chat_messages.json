@@ -1,0 +1,63 @@
+[
+  {
+    "id": "120d6332-95fa-4961-89d8-bb2fd5cf0b46",
+    "format_ver": "v2",
+    "parent_id": null,
+    "children_id": [
+      "0d973e58-f74a-464a-9207-fea77b99c6ec"
+    ],
+    "isUser": true,
+    "timestamp": "2026-06-02T00:42:15.954Z",
+    "messageData": {
+      "variants": {
+        "original": {
+          "text": "push this app to this github repo https://github.com/leesegundo/chess-roulette.git",
+          "createdAt": "2026-06-02T00:42:15.954Z"
+        }
+      },
+      "images": [],
+      "fileAttachments": [],
+      "isHidden": false,
+      "modelLabel": "Fabric · Large",
+      "messageSummary": {
+        "text": "push this app to this github repo https://github.com/leesegundo/chess-roulette.git",
+        "generatedAt": "2026-06-02T00:42:16.026Z",
+        "modelUsed": "none (too short)",
+        "originalTokens": 23.428571428571427,
+        "summaryTokens": 23.428571428571427,
+        "status": "complete"
+      }
+    },
+    "workflowState": {
+      "runId": "workflow-1780360936038-hp4vrhgds",
+      "phase": "coding",
+      "status": "idle",
+      "approvedPlan": null,
+      "snapshot": {
+        "runId": "workflow-1780360936038-hp4vrhgds",
+        "workflowType": "AgenticWorkflow",
+        "status": "idle",
+        "currentPhase": "coding",
+        "phaseData": {},
+        "completedPhases": [],
+        "createdAt": 1780360936039,
+        "updatedAt": 1780360936039
+      },
+      "lastUpdated": "2026-06-02T00:42:16.042Z"
+    }
+  },
+  {
+    "id": "0d973e58-f74a-464a-9207-fea77b99c6ec",
+    "format_ver": "v2",
+    "parent_id": "120d6332-95fa-4961-89d8-bb2fd5cf0b46",
+    "children_id": [],
+    "isUser": false,
+    "timestamp": "2026-06-02T00:42:16.026Z",
+    "messageData": {
+      "processingTime": 0,
+      "responseContent": [],
+      "isStreaming": true,
+      "modelLabel": "Fabric · Large"
+    }
+  }
+]

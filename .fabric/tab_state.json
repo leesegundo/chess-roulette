@@ -1,0 +1,51 @@
+{
+  "tabs": [
+    {
+      "id": "bbe72bac-19d4-43f3-a147-b81a2e660dba",
+      "title": "Chat",
+      "type": "chat",
+      "createdAt": 1780360027585,
+      "updatedAt": 1780360027585,
+      "isActive": true,
+      "chatId": "bbe72bac-19d4-43f3-a147-b81a2e660dba",
+      "paneId": "root"
+    },
+    {
+      "id": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
+      "title": "Chat",
+      "type": "chat",
+      "createdAt": 1780360929393,
+      "updatedAt": 1780360929393,
+      "isActive": true,
+      "chatId": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
+      "paneId": "root"
+    }
+  ],
+  "activeTabId": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
+  "groups": [],
+  "dockedBrowserTabs": {},
+  "activeTabIdByPane": {
+    "root": "21eea12e-4a3e-4b4d-85fe-e767dec6298e"
+  },
+  "paneTree": {
+    "type": "leaf",
+    "id": "root"
+  },
+  "activePaneId": "root",
+  "closedTabStack": [
+    {
+      "kind": "tab",
+      "tab": {
+        "id": "file-C--Users-JovetBroa-Downloads-chess-roulette-challenge-pdf",
+        "title": "chess-roulette-challenge.pdf",
+        "type": "file",
+        "createdAt": 1780360053793,
+        "updatedAt": 1780360053793,
+        "isActive": false,
+        "filePath": "C:\\Users\\JovetBroa\\Downloads\\chess-roulette-challenge.pdf",
+        "paneId": "root"
+      },
+      "wasEphemeral": false
+    }
+  ]
+}
