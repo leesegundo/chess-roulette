@@ -1,88 +1,6 @@
 {
   "tabs": [
     {
-      "id": "b58849a4-7feb-4b92-b99c-ccfc3070efa0",
-      "title": "Running App Locally",
-      "type": "chat",
-      "createdAt": 1780361058636,
-      "updatedAt": 1780361058636,
-      "isActive": true,
-      "chatId": "b58849a4-7feb-4b92-b99c-ccfc3070efa0",
-      "groupId": "group-1780361148473-y72l13fmq",
-      "paneId": "root"
-    },
-    {
-      "id": "db989bc7-6b02-4d7d-bfdc-ab5ce937abf5",
-      "title": "Fix Turn Registration Bug",
-      "type": "chat",
-      "createdAt": 1780363000535,
-      "updatedAt": 1780363000535,
-      "isActive": true,
-      "chatId": "db989bc7-6b02-4d7d-bfdc-ab5ce937abf5",
-      "groupId": "group-1780361148473-y72l13fmq",
-      "paneId": "root"
-    },
-    {
-      "id": "browser-1780363212329-fa18srvmd",
-      "title": "Vite + React + TS",
-      "type": "browser",
-      "createdAt": 1780363212329,
-      "updatedAt": 1780364681019,
-      "isActive": true,
-      "url": "http://localhost:5174/",
-      "paneId": "root",
-      "groupId": "group-1780361148473-y72l13fmq",
-      "sourceChatId": "db989bc7-6b02-4d7d-bfdc-ab5ce937abf5",
-      "favicon": "http://localhost:5174/vite.svg"
-    },
-    {
-      "id": "browser-1780361148465-6pni7vr14",
-      "title": "Vite + React + TS",
-      "type": "browser",
-      "createdAt": 1780361148465,
-      "updatedAt": 1780364680957,
-      "isActive": true,
-      "url": "http://localhost:5173/",
-      "paneId": "root",
-      "groupId": "group-1780361148473-y72l13fmq",
-      "sourceChatId": "b58849a4-7feb-4b92-b99c-ccfc3070efa0",
-      "favicon": "http://localhost:5173/vite.svg"
-    },
-    {
-      "id": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
-      "title": "Push App to GitHub Repo",
-      "type": "chat",
-      "createdAt": 1780360929393,
-      "updatedAt": 1780360929393,
-      "isActive": true,
-      "chatId": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
-      "paneId": "root"
-    },
-    {
-      "id": "46d8ea3b-df8c-4c1e-8054-f0385df5764e",
-      "title": "UI Layout Cameras Left Chess Right",
-      "type": "chat",
-      "createdAt": 1780363422968,
-      "updatedAt": 1780363422968,
-      "isActive": true,
-      "chatId": "46d8ea3b-df8c-4c1e-8054-f0385df5764e",
-      "groupId": "group-1780361148473-y72l13fmq",
-      "paneId": "root"
-    },
-    {
-      "id": "browser-1780363821496-pyrlg3144",
-      "title": "Vite + React + TS",
-      "type": "browser",
-      "createdAt": 1780363821496,
-      "updatedAt": 1780364681000,
-      "isActive": true,
-      "url": "http://localhost:5175/",
-      "paneId": "root",
-      "groupId": "group-1780361148473-y72l13fmq",
-      "sourceChatId": "46d8ea3b-df8c-4c1e-8054-f0385df5764e",
-      "favicon": "http://localhost:5175/vite.svg"
-    },
-    {
       "id": "aa2c5c1e-a6d6-44dc-91f6-d0f04bacfe9c",
       "title": "Fix Large Chess Board",
       "type": "chat",
@@ -98,27 +16,16 @@
       "title": "Vite + React + TS",
       "type": "browser",
       "createdAt": 1780364456730,
-      "updatedAt": 1780364681051,
+      "updatedAt": 1780366368075,
       "isActive": true,
       "url": "http://localhost:5176/",
       "paneId": "root",
       "groupId": "group-1780361148473-y72l13fmq",
       "sourceChatId": "aa2c5c1e-a6d6-44dc-91f6-d0f04bacfe9c",
       "favicon": "http://localhost:5176/vite.svg"
-    },
-    {
-      "id": "8d667f46-6d25-4981-be36-ed66b98f7257",
-      "title": "Chat",
-      "type": "chat",
-      "createdAt": 1780364652864,
-      "updatedAt": 1780364652864,
-      "isActive": true,
-      "chatId": "8d667f46-6d25-4981-be36-ed66b98f7257",
-      "groupId": "group-1780361148473-y72l13fmq",
-      "paneId": "root"
     }
   ],
-  "activeTabId": "8d667f46-6d25-4981-be36-ed66b98f7257",
+  "activeTabId": "aa2c5c1e-a6d6-44dc-91f6-d0f04bacfe9c",
   "groups": [
     {
       "id": "group-1780361148473-y72l13fmq",
@@ -130,13 +37,10 @@
     }
   ],
   "dockedBrowserTabs": {
-    "b58849a4-7feb-4b92-b99c-ccfc3070efa0": "browser-1780361148465-6pni7vr14",
-    "db989bc7-6b02-4d7d-bfdc-ab5ce937abf5": "browser-1780363212329-fa18srvmd",
-    "46d8ea3b-df8c-4c1e-8054-f0385df5764e": "browser-1780363821496-pyrlg3144",
     "aa2c5c1e-a6d6-44dc-91f6-d0f04bacfe9c": "browser-1780364456729-lfmwt9ysv"
   },
   "activeTabIdByPane": {
-    "root": "8d667f46-6d25-4981-be36-ed66b98f7257"
+    "root": "aa2c5c1e-a6d6-44dc-91f6-d0f04bacfe9c"
   },
   "paneTree": {
     "type": "leaf",
@@ -168,6 +72,80 @@
         "updatedAt": 1780360027585,
         "isActive": false,
         "chatId": "bbe72bac-19d4-43f3-a147-b81a2e660dba",
+        "paneId": "root"
+      },
+      "wasEphemeral": false
+    },
+    {
+      "kind": "tab",
+      "tab": {
+        "id": "b58849a4-7feb-4b92-b99c-ccfc3070efa0",
+        "title": "Running App Locally",
+        "type": "chat",
+        "createdAt": 1780361058636,
+        "updatedAt": 1780361058636,
+        "isActive": false,
+        "chatId": "b58849a4-7feb-4b92-b99c-ccfc3070efa0",
+        "groupId": "group-1780361148473-y72l13fmq",
+        "paneId": "root"
+      },
+      "wasEphemeral": false
+    },
+    {
+      "kind": "tab",
+      "tab": {
+        "id": "db989bc7-6b02-4d7d-bfdc-ab5ce937abf5",
+        "title": "Fix Turn Registration Bug",
+        "type": "chat",
+        "createdAt": 1780363000535,
+        "updatedAt": 1780363000535,
+        "isActive": false,
+        "chatId": "db989bc7-6b02-4d7d-bfdc-ab5ce937abf5",
+        "groupId": "group-1780361148473-y72l13fmq",
+        "paneId": "root"
+      },
+      "wasEphemeral": false
+    },
+    {
+      "kind": "tab",
+      "tab": {
+        "id": "46d8ea3b-df8c-4c1e-8054-f0385df5764e",
+        "title": "UI Layout Cameras Left Chess Right",
+        "type": "chat",
+        "createdAt": 1780363422968,
+        "updatedAt": 1780363422968,
+        "isActive": false,
+        "chatId": "46d8ea3b-df8c-4c1e-8054-f0385df5764e",
+        "groupId": "group-1780361148473-y72l13fmq",
+        "paneId": "root"
+      },
+      "wasEphemeral": false
+    },
+    {
+      "kind": "tab",
+      "tab": {
+        "id": "8d667f46-6d25-4981-be36-ed66b98f7257",
+        "title": "Push Changes to GitHub",
+        "type": "chat",
+        "createdAt": 1780364652864,
+        "updatedAt": 1780364652864,
+        "isActive": false,
+        "chatId": "8d667f46-6d25-4981-be36-ed66b98f7257",
+        "groupId": "group-1780361148473-y72l13fmq",
+        "paneId": "root"
+      },
+      "wasEphemeral": false
+    },
+    {
+      "kind": "tab",
+      "tab": {
+        "id": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
+        "title": "Push App to GitHub Repo",
+        "type": "chat",
+        "createdAt": 1780360929393,
+        "updatedAt": 1780360929393,
+        "isActive": false,
+        "chatId": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
         "paneId": "root"
       },
       "wasEphemeral": false

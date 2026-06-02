@@ -3,7 +3,7 @@
   "title": "Running App Locally",
   "createdAt": 1780361068262,
   "updatedAt": 1780362692991,
-  "isActive": true,
+  "isActive": false,
   "lastMessage": "<system-reminder>\nA background task completed:\n<ta...",
   "timestamp": 1780362676898,
   "sessionType": "normal"

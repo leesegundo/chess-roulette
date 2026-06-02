@@ -1,37 +1,53 @@
 {
   "version": 1,
-  "updatedAt": 1780363536112,
+  "updatedAt": 1780365138078,
   "chats": [
     {
       "id": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
       "title": "Push App to GitHub Repo",
       "createdAt": 1780360935955,
-      "updatedAt": 1780361032131,
-      "isActive": true,
+      "updatedAt": 1780363988455,
+      "isActive": false,
       "sessionType": "normal"
     },
     {
       "id": "b58849a4-7feb-4b92-b99c-ccfc3070efa0",
       "title": "Running App Locally",
       "createdAt": 1780361068262,
-      "updatedAt": 1780361078242,
-      "isActive": true,
+      "updatedAt": 1780362692991,
+      "isActive": false,
       "sessionType": "normal"
     },
     {
       "id": "db989bc7-6b02-4d7d-bfdc-ab5ce937abf5",
       "title": "Fix Turn Registration Bug",
       "createdAt": 1780363036666,
-      "updatedAt": 1780363120088,
-      "isActive": true,
+      "updatedAt": 1780363289596,
+      "isActive": false,
       "sessionType": "normal"
     },
     {
       "id": "46d8ea3b-df8c-4c1e-8054-f0385df5764e",
       "title": "UI Layout Cameras Left Chess Right",
       "createdAt": 1780363469637,
-      "updatedAt": 1780363536092,
+      "updatedAt": 1780363996698,
+      "isActive": false,
+      "sessionType": "normal"
+    },
+    {
+      "id": "aa2c5c1e-a6d6-44dc-91f6-d0f04bacfe9c",
+      "title": "Fix Large Chess Board",
+      "createdAt": 1780364355116,
+      "updatedAt": 1780364388814,
       "isActive": true,
+      "sessionType": "normal"
+    },
+    {
+      "id": "8d667f46-6d25-4981-be36-ed66b98f7257",
+      "title": "Push Changes to GitHub",
+      "createdAt": 1780364660078,
+      "updatedAt": 1780364865392,
+      "isActive": false,
       "sessionType": "normal"
     }
   ]

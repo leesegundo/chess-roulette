@@ -3,7 +3,7 @@
   "title": "Push App to GitHub Repo",
   "createdAt": 1780360935955,
   "updatedAt": 1780363988455,
-  "isActive": true,
+  "isActive": false,
   "lastMessage": "push the changes to repo",
   "timestamp": 1780363988146,
   "sessionType": "normal"

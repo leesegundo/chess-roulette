@@ -31,7 +31,33 @@ export function ChatPanel() {
   };
 
   if (!gameState.game) {
-    return null;
+    return (
+      <div className="chat-panel">
+        <div className="chat-header">
+          <h3>💬 Chat</h3>
+        </div>
+        <div className="chat-messages">
+          <div className="no-messages">
+            <p>Waiting for match...</p>
+            <p className="hint">Chat will be available when you're matched</p>
+          </div>
+        </div>
+        <div className="chat-input-form">
+          <input
+            type="text"
+            placeholder="Waiting for opponent..."
+            className="chat-input"
+            disabled
+          />
+          <button className="chat-send-btn" disabled>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <line x1="22" y1="2" x2="11" y2="13" />
+              <polygon points="22 2 15 22 11 13 2 9 22 2" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    );
   }
 
   return (

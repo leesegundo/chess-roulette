@@ -50,7 +50,7 @@ export function ChessBoardPanel() {
       if (gameState.isMatched) {
         return 'Waiting for game to start...';
       }
-      return '';
+      return '🎯 Practice Mode - Free Play';
     }
 
     if (gameState.isMyTurn) {
@@ -78,56 +78,45 @@ export function ChessBoardPanel() {
       </div>
 
       <div className="chessboard-container">
+        <Chessboard
+          id="ChessBoard"
+          position={gameState.fen}
+          onPieceDrop={gameState.isPlaying ? onDrop : undefined}
+          boardOrientation={getBoardOrientation()}
+          animationDuration={300}
+          customDarkSquareStyle={{ backgroundColor: '#779556' }}
+          customLightSquareStyle={{ backgroundColor: '#ebecd0' }}
+          arePiecesDraggable={gameState.isMyTurn && !gameState.gameOver && gameState.isPlaying}
+          customBoardStyle={{
+            borderRadius: '4px',
+            boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
+          }}
+        />
+      </div>
+
+      <div className="game-info">
         {gameState.isPlaying ? (
-          <Chessboard
-            id="ChessBoard"
-            position={gameState.fen}
-            onPieceDrop={onDrop}
-            boardOrientation={getBoardOrientation()}
-            animationDuration={300}
-            customDarkSquareStyle={{ backgroundColor: '#779556' }}
-            customLightSquareStyle={{ backgroundColor: '#ebecd0' }}
-            arePiecesDraggable={gameState.isMyTurn && !gameState.gameOver}
-            customBoardStyle={{
-              borderRadius: '4px',
-              boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
-            }}
-          />
-        ) : (
-          <div className="waiting-placeholder">
-            <div className="placeholder-icon">
-              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <line x1="3" y1="9" x2="21" y2="9" />
-                <line x1="9" y1="21" x2="9" y2="9" />
-              </svg>
+          <>
+            <div className="player-info">
+              <span className="player-color">
+                {gameState.playerColor === 'white' ? '⚪ White' : '⚫ Black'}
+              </span>
+              <span className="player-you">(You)</span>
             </div>
-            <p>
-              {gameState.isMatched 
-                ? 'Waiting for game to start...' 
-                : 'Join the queue to find a match'}
-            </p>
+            <div className="vs">VS</div>
+            <div className="player-info">
+              <span className="player-color">
+                {gameState.playerColor === 'white' ? '⚫ Black' : '⚪ White'}
+              </span>
+              <span className="player-opponent">(Opponent)</span>
+            </div>
+          </>
+        ) : (
+          <div className="practice-mode">
+            <span>🎯 Practice Mode</span>
           </div>
         )}
       </div>
-
-      {gameState.isPlaying && (
-        <div className="game-info">
-          <div className="player-info">
-            <span className="player-color">
-              {gameState.playerColor === 'white' ? '⚪ White' : '⚫ Black'}
-            </span>
-            <span className="player-you">(You)</span>
-          </div>
-          <div className="vs">VS</div>
-          <div className="player-info">
-            <span className="player-color">
-              {gameState.playerColor === 'white' ? '⚫ Black' : '⚪ White'}
-            </span>
-            <span className="player-opponent">(Opponent)</span>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

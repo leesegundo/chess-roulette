@@ -112,7 +112,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem;
   margin-bottom: 0;
   flex-wrap: wrap;
   justify-content: center;
@@ -120,10 +120,10 @@
 
 .header-controls .btn {
   width: auto;
-  margin-bottom: 0;
+  margin: 0 0.25rem;
   min-width: auto;
-  padding: 0.45rem 0.75rem;
-  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
   white-space: nowrap;
 }
 
@@ -192,7 +192,7 @@
 .app-main {
   flex: 1;
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 25% 50% 25%;
   gap: 0.75rem;
   padding: 0.75rem;
   max-width: 100%;
@@ -224,7 +224,7 @@
   height: 100%;
 }
 
-/* Right Panel - Chess Board */
+/* Center Panel - Chess Board (50% width) */
 .game-area {
   display: flex;
   justify-content: center;
@@ -272,6 +272,16 @@
   color: var(--text-secondary);
 }
 
+.practice-mode {
+  font-size: 1rem;
+  color: var(--primary);
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  background: rgba(79, 70, 229, 0.1);
+  border-radius: 6px;
+  display: inline-block;
+}
+
 .chessboard-container {
   margin: 0 auto;
   width: 100%;
@@ -280,16 +290,23 @@
   align-items: center;
 }
 
-/* Make chessboard responsive to fit the 60% area */
-.chessboard-container [data-chessboard] {
+/* Make chessboard responsive to fit the game-area */
+.chessboard-container > div {
   width: 100% !important;
-  max-width: min(65vh, 100%) !important;
+  max-width: min(65vh, 500px) !important;
   height: auto !important;
 }
 
+/* Target react-chessboard internal elements */
+.chessboard-container .react-chessboard-wrapper,
+.chessboard-container [class*="chessboard"] {
+  max-width: min(65vh, 500px) !important;
+  max-height: min(65vh, 500px) !important;
+}
+
 .waiting-placeholder {
-  width: min(400px, 100%);
-  height: min(400px, 60vh);
+  width: min(300px, 80%);
+  height: min(300px, 45vh);
   display: flex;
   flex-direction: column;
   justify-content: center;

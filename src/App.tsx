@@ -121,9 +121,9 @@ function AppContent() {
           <ChessBoardPanel />
         </div>
 
-        {/* Sidebar - Chat Only */}
+        {/* Right Panel - Chat (25%) */}
         <div className="sidebar">
-          {gameState.isMatched && <ChatPanel />}
+          <ChatPanel />
         </div>
       </main>
 
