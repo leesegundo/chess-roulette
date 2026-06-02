@@ -27,7 +27,7 @@
       "title": "Vite + React + TS",
       "type": "browser",
       "createdAt": 1780363212329,
-      "updatedAt": 1780363928830,
+      "updatedAt": 1780364681019,
       "isActive": true,
       "url": "http://localhost:5174/",
       "paneId": "root",
@@ -40,7 +40,7 @@
       "title": "Vite + React + TS",
       "type": "browser",
       "createdAt": 1780361148465,
-      "updatedAt": 1780363928765,
+      "updatedAt": 1780364680957,
       "isActive": true,
       "url": "http://localhost:5173/",
       "paneId": "root",
@@ -74,16 +74,51 @@
       "title": "Vite + React + TS",
       "type": "browser",
       "createdAt": 1780363821496,
-      "updatedAt": 1780363958383,
+      "updatedAt": 1780364681000,
       "isActive": true,
       "url": "http://localhost:5175/",
       "paneId": "root",
       "groupId": "group-1780361148473-y72l13fmq",
       "sourceChatId": "46d8ea3b-df8c-4c1e-8054-f0385df5764e",
       "favicon": "http://localhost:5175/vite.svg"
+    },
+    {
+      "id": "aa2c5c1e-a6d6-44dc-91f6-d0f04bacfe9c",
+      "title": "Fix Large Chess Board",
+      "type": "chat",
+      "createdAt": 1780364354182,
+      "updatedAt": 1780364354182,
+      "isActive": true,
+      "chatId": "aa2c5c1e-a6d6-44dc-91f6-d0f04bacfe9c",
+      "groupId": "group-1780361148473-y72l13fmq",
+      "paneId": "root"
+    },
+    {
+      "id": "browser-1780364456729-lfmwt9ysv",
+      "title": "Vite + React + TS",
+      "type": "browser",
+      "createdAt": 1780364456730,
+      "updatedAt": 1780364681051,
+      "isActive": true,
+      "url": "http://localhost:5176/",
+      "paneId": "root",
+      "groupId": "group-1780361148473-y72l13fmq",
+      "sourceChatId": "aa2c5c1e-a6d6-44dc-91f6-d0f04bacfe9c",
+      "favicon": "http://localhost:5176/vite.svg"
+    },
+    {
+      "id": "8d667f46-6d25-4981-be36-ed66b98f7257",
+      "title": "Chat",
+      "type": "chat",
+      "createdAt": 1780364652864,
+      "updatedAt": 1780364652864,
+      "isActive": true,
+      "chatId": "8d667f46-6d25-4981-be36-ed66b98f7257",
+      "groupId": "group-1780361148473-y72l13fmq",
+      "paneId": "root"
     }
   ],
-  "activeTabId": "46d8ea3b-df8c-4c1e-8054-f0385df5764e",
+  "activeTabId": "8d667f46-6d25-4981-be36-ed66b98f7257",
   "groups": [
     {
       "id": "group-1780361148473-y72l13fmq",
@@ -97,10 +132,11 @@
   "dockedBrowserTabs": {
     "b58849a4-7feb-4b92-b99c-ccfc3070efa0": "browser-1780361148465-6pni7vr14",
     "db989bc7-6b02-4d7d-bfdc-ab5ce937abf5": "browser-1780363212329-fa18srvmd",
-    "46d8ea3b-df8c-4c1e-8054-f0385df5764e": "browser-1780363821496-pyrlg3144"
+    "46d8ea3b-df8c-4c1e-8054-f0385df5764e": "browser-1780363821496-pyrlg3144",
+    "aa2c5c1e-a6d6-44dc-91f6-d0f04bacfe9c": "browser-1780364456729-lfmwt9ysv"
   },
   "activeTabIdByPane": {
-    "root": "46d8ea3b-df8c-4c1e-8054-f0385df5764e"
+    "root": "8d667f46-6d25-4981-be36-ed66b98f7257"
   },
   "paneTree": {
     "type": "leaf",
