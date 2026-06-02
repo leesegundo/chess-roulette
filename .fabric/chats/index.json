@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": 1780361078250,
+  "updatedAt": 1780363536112,
   "chats": [
     {
       "id": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
@@ -15,6 +15,22 @@
       "title": "Running App Locally",
       "createdAt": 1780361068262,
       "updatedAt": 1780361078242,
+      "isActive": true,
+      "sessionType": "normal"
+    },
+    {
+      "id": "db989bc7-6b02-4d7d-bfdc-ab5ce937abf5",
+      "title": "Fix Turn Registration Bug",
+      "createdAt": 1780363036666,
+      "updatedAt": 1780363120088,
+      "isActive": true,
+      "sessionType": "normal"
+    },
+    {
+      "id": "46d8ea3b-df8c-4c1e-8054-f0385df5764e",
+      "title": "UI Layout Cameras Left Chess Right",
+      "createdAt": 1780363469637,
+      "updatedAt": 1780363536092,
       "isActive": true,
       "sessionType": "normal"
     }

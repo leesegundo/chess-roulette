@@ -92,13 +92,15 @@ export function GameProvider({ children }: { children: ReactNode }) {
       const chessMove = chess.move(move);
       if (chessMove) {
         const fen = chess.fen();
+        // Send SAN move to server (server will broadcast to opponent)
         socketService.makeMove(gameState.game.id, chessMove.san, fen);
         
+        // Optimistically update local state
         setGameState((prev) => ({
           ...prev,
           fen,
-          lastMove: { from: move.from, to: move.to },
-          isMyTurn: false,
+          lastMove: { from: chessMove.from, to: chessMove.to },
+          isMyTurn: false, // Will be set back to true when opponent moves
         }));
 
         // Check for game over
@@ -125,6 +127,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
       }
     } catch (err) {
       console.error('Invalid move:', err);
+      setError('Invalid move');
     }
   }, [gameState.game, gameState.isPlaying, chess]);
 
@@ -245,39 +248,69 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
       unsubscribers.push(
         socketService.on('opponentMove', (data: { move: string; fen: string; isWhite: boolean }) => {
-          console.log('Opponent move:', data);
+          console.log('Opponent move received:', data);
           
           try {
-            chess.move({ from: data.move.substring(0, 2), to: data.move.substring(2, 4), promotion: 'q' });
+            // Parse the move - handle both SAN (e.g., "Nf3") and coordinate (e.g., "e2e4") formats
+            let chessMove;
+            if (data.move.length === 4 || data.move.length === 5) {
+              // Coordinate format (e.g., "e2e4" or "e7e8q")
+              chessMove = chess.move({
+                from: data.move.substring(0, 2),
+                to: data.move.substring(2, 4),
+                promotion: data.move.length === 5 ? data.move[4] : 'q',
+              });
+            } else {
+              // SAN format (e.g., "Nf3", "O-O")
+              chessMove = chess.move(data.move);
+            }
             
-            setGameState((prev) => ({
-              ...prev,
-              fen: data.fen,
-              isMyTurn: true,
-            }));
-
-            // Check for game over
-            if (chess.isGameOver()) {
-              let winner: 'white' | 'black' | 'draw' | null = null;
-              let reason = '';
-
-              if (chess.isCheckmate()) {
-                winner = chess.turn() === 'w' ? 'black' : 'white';
-                reason = 'checkmate';
-              } else if (chess.isDraw()) {
-                reason = 'draw';
-              }
-
+            if (chessMove) {
               setGameState((prev) => ({
                 ...prev,
-                gameOver: true,
-                winner,
-                gameOverReason: reason,
+                fen: data.fen,
+                lastMove: { from: chessMove.from, to: chessMove.to },
+                isMyTurn: true,
               }));
+
+              // Check for game over
+              if (chess.isGameOver()) {
+                let winner: 'white' | 'black' | 'draw' | null = null;
+                let reason = '';
+
+                if (chess.isCheckmate()) {
+                  winner = chess.turn() === 'w' ? 'black' : 'white';
+                  reason = 'checkmate';
+                } else if (chess.isDraw()) {
+                  reason = 'draw';
+                } else if (chess.isStalemate()) {
+                  reason = 'stalemate';
+                }
+
+                setGameState((prev) => ({
+                  ...prev,
+                  gameOver: true,
+                  winner,
+                  gameOverReason: reason,
+                }));
+              }
             }
           } catch (err) {
-            console.error('Error processing opponent move:', err);
+            console.error('Error processing opponent move:', err, 'Move data:', data);
+            setError('Invalid move received from opponent');
           }
+        })
+      );
+
+      unsubscribers.push(
+        socketService.on('moveConfirmed', (data: { move: string; fen: string; isWhite: boolean }) => {
+          console.log('Move confirmed by server:', data);
+          // The client already optimistically updates on makeMove, so this is just for confirmation
+          // Update FEN in case server corrected it
+          setGameState((prev) => ({
+            ...prev,
+            fen: data.fen,
+          }));
         })
       );
 

@@ -43,6 +43,7 @@ class SocketService {
       'matchFound',
       'gameStart',
       'opponentMove',
+      'moveConfirmed',
       'gameOver',
       'error',
       'chatMessage',

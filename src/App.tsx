@@ -48,6 +48,12 @@ function AppContent() {
           <h1>CHESS ROULETTE</h1>
           <p className="subtitle">CODING CHALLENGE</p>
         </div>
+        
+        {/* Game Controls in Center */}
+        <div className="header-controls">
+          <Controls />
+        </div>
+        
         <div className="header-info">
           <div className="info-badge">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -69,21 +75,54 @@ function AppContent() {
       </header>
 
       <main className="app-main">
+        {/* Left Panel - Cameras (40%) */}
+        <div className="camera-panel">
+          {gameState.isMatched ? (
+            <div className="video-panels-vertical">
+              <VideoPanel isLocal={true} />
+              <VideoPanel isLocal={false} />
+            </div>
+          ) : (
+            <div className="video-panels-vertical">
+              <div className="video-panel">
+                <div className="video-container">
+                  <div className="video-placeholder">
+                    <div className="placeholder-icon">
+                      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M23 7l-7 5 7 5V7z" />
+                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                      </svg>
+                    </div>
+                    <p>Waiting for match...</p>
+                  </div>
+                </div>
+                <div className="video-label">Your Camera</div>
+              </div>
+              <div className="video-panel">
+                <div className="video-container">
+                  <div className="video-placeholder">
+                    <div className="placeholder-icon">
+                      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M23 7l-7 5 7 5V7z" />
+                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                      </svg>
+                    </div>
+                    <p>Waiting for opponent...</p>
+                  </div>
+                </div>
+                <div className="video-label">Opponent</div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Right Panel - Chess Board (60%) */}
         <div className="game-area">
           <ChessBoardPanel />
         </div>
 
-        {gameState.isMatched && (
-          <div className="video-area">
-            <div className="video-panels">
-              <VideoPanel isLocal={true} />
-              <VideoPanel isLocal={false} />
-            </div>
-          </div>
-        )}
-
+        {/* Sidebar - Chat Only */}
         <div className="sidebar">
-          <Controls />
           {gameState.isMatched && <ChatPanel />}
         </div>
       </main>

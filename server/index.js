@@ -36,6 +36,24 @@ function addToQueue(playerId, socketId) {
   }
 }
 
+// Join a player to a game room
+function joinGameRoom(socketId, gameId) {
+  const socket = io.sockets.sockets.get(socketId);
+  if (socket) {
+    socket.join(gameId);
+    console.log(`Player ${socketId} joined game room ${gameId}`);
+  }
+}
+
+// Leave a game room
+function leaveGameRoom(socketId, gameId) {
+  const socket = io.sockets.sockets.get(socketId);
+  if (socket) {
+    socket.leave(gameId);
+    console.log(`Player ${socketId} left game room ${gameId}`);
+  }
+}
+
 function removeFromQueue(playerId) {
   waitingPlayers.delete(playerId);
 }
@@ -69,6 +87,10 @@ function matchPlayers() {
   playerToGame.set(player2.id, gameId);
   
   console.log(`Matched: ${player1.id} (white) vs ${player2.id} (black) in game ${gameId}`);
+  
+  // Join both players to the game room
+  joinGameRoom(player1.socketId, gameId);
+  joinGameRoom(player2.socketId, gameId);
   
   // Notify both players
   io.to(player1.socketId).emit('matchFound', {
@@ -126,6 +148,7 @@ io.on('connection', (socket) => {
     const game = activeGames.get(gameId);
     
     if (!game) {
+      console.error(`Game ${gameId} not found for move from ${playerId}`);
       socket.emit('error', { message: 'Game not found' });
       return;
     }
@@ -135,7 +158,18 @@ io.on('connection', (socket) => {
     const isBlack = game.black === playerId;
     
     if (!isWhite && !isBlack) {
+      console.error(`Player ${playerId} is not in game ${gameId}`);
       socket.emit('error', { message: 'Not a player in this game' });
+      return;
+    }
+    
+    // Determine whose turn it should be (white moves first)
+    const moveNumber = game.moves.length;
+    const shouldBeWhiteTurn = moveNumber % 2 === 0;
+    
+    if ((isWhite && !shouldBeWhiteTurn) || (isBlack && shouldBeWhiteTurn)) {
+      console.error(`Invalid turn: ${isWhite ? 'White' : 'Black'} tried to move on move ${moveNumber}`);
+      socket.emit('error', { message: 'Not your turn' });
       return;
     }
     
@@ -147,14 +181,20 @@ io.on('connection', (socket) => {
       timestamp: Date.now(),
     });
     
-    // Broadcast to opponent
-    const opponentId = isWhite ? game.black : game.white;
-    const opponentSocketId = isWhite ? game.blackSocketId : game.whiteSocketId;
+    console.log(`Move recorded in game ${gameId}: ${move} by ${playerId} (${isWhite ? 'White' : 'Black'})`);
     
-    io.to(opponentSocketId).emit('opponentMove', {
+    // Broadcast to opponent using game room (more reliable than socket ID)
+    socket.to(gameId).emit('opponentMove', {
       move,
       fen,
-      isWhite: !isWhite,
+      isWhite: isWhite,
+    });
+    
+    // Also send confirmation to the player who made the move
+    socket.emit('moveConfirmed', {
+      move,
+      fen,
+      isWhite: isWhite,
     });
   });
   
@@ -168,15 +208,13 @@ io.on('connection', (socket) => {
     game.status = 'completed';
     const winner = game.white === playerId ? 'black' : 'white';
     
-    io.to(game.whiteSocketId).emit('gameOver', {
+    // Broadcast to all players in the game room
+    io.to(gameId).emit('gameOver', {
       reason: 'resignation',
       winner: winner === 'white' ? 'white' : 'black',
     });
     
-    io.to(game.blackSocketId).emit('gameOver', {
-      reason: 'resignation',
-      winner: winner === 'white' ? 'white' : 'black',
-    });
+    console.log(`Game ${gameId} ended by resignation. Winner: ${winner}`);
     
     // Clean up
     playerToGame.delete(game.white);
@@ -191,10 +229,10 @@ io.on('connection', (socket) => {
     
     if (!game) return;
     
-    const targetSocketId = data.from === game.whiteSocketId ? game.blackSocketId : game.whiteSocketId;
-    io.to(targetSocketId).emit('webrtc-offer', {
+    // Broadcast to opponent in the game room
+    socket.to(gameId).emit('webrtc-offer', {
       offer,
-      from: data.from,
+      from: playerId,
     });
   });
   
@@ -205,10 +243,10 @@ io.on('connection', (socket) => {
     
     if (!game) return;
     
-    const targetSocketId = data.from === game.whiteSocketId ? game.blackSocketId : game.whiteSocketId;
-    io.to(targetSocketId).emit('webrtc-answer', {
+    // Broadcast to opponent in the game room
+    socket.to(gameId).emit('webrtc-answer', {
       answer,
-      from: data.from,
+      from: playerId,
     });
   });
   
@@ -219,10 +257,10 @@ io.on('connection', (socket) => {
     
     if (!game) return;
     
-    const targetSocketId = data.from === game.whiteSocketId ? game.blackSocketId : game.whiteSocketId;
-    io.to(targetSocketId).emit('webrtc-ice-candidate', {
+    // Broadcast to opponent in the game room
+    socket.to(gameId).emit('webrtc-ice-candidate', {
       candidate,
-      from: data.from,
+      from: playerId,
     });
   });
   
@@ -233,13 +271,8 @@ io.on('connection', (socket) => {
     
     if (!game) return;
     
-    io.to(game.whiteSocketId).emit('chatMessage', {
-      from: playerId,
-      message,
-      timestamp: Date.now(),
-    });
-    
-    io.to(game.blackSocketId).emit('chatMessage', {
+    // Broadcast to all players in the game room (including sender for confirmation)
+    io.to(gameId).emit('chatMessage', {
       from: playerId,
       message,
       timestamp: Date.now(),
@@ -261,8 +294,10 @@ io.on('connection', (socket) => {
         game.status = 'completed';
         const winner = game.white === playerId ? 'black' : 'white';
         
-        const opponentSocketId = playerId === game.whiteSocketId ? game.blackSocketId : game.whiteSocketId;
-        io.to(opponentSocketId).emit('gameOver', {
+        console.log(`Game ${gameId} ended due to disconnect. Winner: ${winner}`);
+        
+        // Notify opponent in the game room
+        socket.to(gameId).emit('gameOver', {
           reason: 'opponent_disconnected',
           winner,
         });
@@ -278,6 +313,9 @@ io.on('connection', (socket) => {
         playerToGame.delete(game.black);
         activeGames.delete(gameId);
       }
+      
+      // Leave game room
+      leaveGameRoom(playerId, gameId);
     }
   });
 });

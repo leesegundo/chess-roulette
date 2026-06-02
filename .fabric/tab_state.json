@@ -1,16 +1,6 @@
 {
   "tabs": [
     {
-      "id": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
-      "title": "Push App to GitHub Repo",
-      "type": "chat",
-      "createdAt": 1780360929393,
-      "updatedAt": 1780360929393,
-      "isActive": true,
-      "chatId": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
-      "paneId": "root"
-    },
-    {
       "id": "b58849a4-7feb-4b92-b99c-ccfc3070efa0",
       "title": "Running App Locally",
       "type": "chat",
@@ -22,20 +12,78 @@
       "paneId": "root"
     },
     {
+      "id": "db989bc7-6b02-4d7d-bfdc-ab5ce937abf5",
+      "title": "Fix Turn Registration Bug",
+      "type": "chat",
+      "createdAt": 1780363000535,
+      "updatedAt": 1780363000535,
+      "isActive": true,
+      "chatId": "db989bc7-6b02-4d7d-bfdc-ab5ce937abf5",
+      "groupId": "group-1780361148473-y72l13fmq",
+      "paneId": "root"
+    },
+    {
+      "id": "browser-1780363212329-fa18srvmd",
+      "title": "Vite + React + TS",
+      "type": "browser",
+      "createdAt": 1780363212329,
+      "updatedAt": 1780363928830,
+      "isActive": true,
+      "url": "http://localhost:5174/",
+      "paneId": "root",
+      "groupId": "group-1780361148473-y72l13fmq",
+      "sourceChatId": "db989bc7-6b02-4d7d-bfdc-ab5ce937abf5",
+      "favicon": "http://localhost:5174/vite.svg"
+    },
+    {
       "id": "browser-1780361148465-6pni7vr14",
       "title": "Vite + React + TS",
       "type": "browser",
       "createdAt": 1780361148465,
-      "updatedAt": 1780362479375,
+      "updatedAt": 1780363928765,
       "isActive": true,
       "url": "http://localhost:5173/",
       "paneId": "root",
       "groupId": "group-1780361148473-y72l13fmq",
       "sourceChatId": "b58849a4-7feb-4b92-b99c-ccfc3070efa0",
       "favicon": "http://localhost:5173/vite.svg"
+    },
+    {
+      "id": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
+      "title": "Push App to GitHub Repo",
+      "type": "chat",
+      "createdAt": 1780360929393,
+      "updatedAt": 1780360929393,
+      "isActive": true,
+      "chatId": "21eea12e-4a3e-4b4d-85fe-e767dec6298e",
+      "paneId": "root"
+    },
+    {
+      "id": "46d8ea3b-df8c-4c1e-8054-f0385df5764e",
+      "title": "UI Layout Cameras Left Chess Right",
+      "type": "chat",
+      "createdAt": 1780363422968,
+      "updatedAt": 1780363422968,
+      "isActive": true,
+      "chatId": "46d8ea3b-df8c-4c1e-8054-f0385df5764e",
+      "groupId": "group-1780361148473-y72l13fmq",
+      "paneId": "root"
+    },
+    {
+      "id": "browser-1780363821496-pyrlg3144",
+      "title": "Vite + React + TS",
+      "type": "browser",
+      "createdAt": 1780363821496,
+      "updatedAt": 1780363958383,
+      "isActive": true,
+      "url": "http://localhost:5175/",
+      "paneId": "root",
+      "groupId": "group-1780361148473-y72l13fmq",
+      "sourceChatId": "46d8ea3b-df8c-4c1e-8054-f0385df5764e",
+      "favicon": "http://localhost:5175/vite.svg"
     }
   ],
-  "activeTabId": "b58849a4-7feb-4b92-b99c-ccfc3070efa0",
+  "activeTabId": "46d8ea3b-df8c-4c1e-8054-f0385df5764e",
   "groups": [
     {
       "id": "group-1780361148473-y72l13fmq",
@@ -47,10 +95,12 @@
     }
   ],
   "dockedBrowserTabs": {
-    "b58849a4-7feb-4b92-b99c-ccfc3070efa0": "browser-1780361148465-6pni7vr14"
+    "b58849a4-7feb-4b92-b99c-ccfc3070efa0": "browser-1780361148465-6pni7vr14",
+    "db989bc7-6b02-4d7d-bfdc-ab5ce937abf5": "browser-1780363212329-fa18srvmd",
+    "46d8ea3b-df8c-4c1e-8054-f0385df5764e": "browser-1780363821496-pyrlg3144"
   },
   "activeTabIdByPane": {
-    "root": "b58849a4-7feb-4b92-b99c-ccfc3070efa0"
+    "root": "46d8ea3b-df8c-4c1e-8054-f0385df5764e"
   },
   "paneTree": {
     "type": "leaf",
